@@ -24,7 +24,7 @@ keymap.set("n", "dw", 'vb"_d')
 -- Incremental rename:
 
 -- Select all
-keymap.set("n", "<C-a>", "gg<S-v>G")
+keymap.set("n", "<C-a>", "ggS-v>G")
 
 -- Disable continuations
 keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
