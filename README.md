@@ -70,3 +70,12 @@ yourprefix + I
 ```
 
 - Adapat it to your needs (root path, aliases, etc)
+
+### Install Config On Linux
+
+- Run the following command in your command line to install the config:
+  This will also save up your current configs under `*.backup` before replacing them.
+
+```sh
+make install
+```
