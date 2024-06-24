@@ -37,5 +37,11 @@ install-zsh-config:
 	@cp .zshrc ~/.zshrc
 	@echo "\033[31mZsh configured! 🐚\033[0m"
 
+install-alacritty-config:
+	@echo "\033[32mInstalling Alacritty configuration...\033[0m"
+	@mkdir -p ~/.config/alacritty
+	@cp dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
+	@echo "\033[32mAlacritty configuration installed! 🚀\033[0m"
+
 .PHONY: install backup-config install-nvim-config install-tpm install-tmux-config install-zsh-config
 

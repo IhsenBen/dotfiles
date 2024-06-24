@@ -12,7 +12,23 @@ return {
 			},
 		},
 	},
-
+	{
+		"aserowy/tmux.nvim",
+		config = function()
+			require("tmux").setup({
+				copy_sync = {
+					enable = true,
+					redirect_to_clipboard = false,
+				},
+				navigation = {
+					enable_default_keybindings = true,
+				},
+				resize = {
+					enable_default_keybindings = true,
+				},
+			})
+		end,
+	},
 	{
 		"echasnovski/mini.hipatterns",
 		event = "BufReadPre",
@@ -33,10 +49,6 @@ return {
 				},
 			},
 		},
-	},
-	{
-		"nvim-telescope/telescope-file-browser.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	},
 	{
 		"telescope.nvim",

@@ -114,7 +114,6 @@ return {
 				aerial = true,
 				alpha = true,
 				cmp = true,
-				dashboard = true,
 				flash = true,
 				gitsigns = true,
 				headlines = true,
@@ -232,9 +231,12 @@ return {
 			})
 		end,
 	},
+	--# translates to : pursuit of Knowledge comes before speech and labor
+	--# le savoir avant la parole et le travail
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
+		enabled = "true",
 		opts = function(_, opts)
 			local logo = [[
                   ▄ ▄                   
