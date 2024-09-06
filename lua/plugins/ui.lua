@@ -1,5 +1,18 @@
 return {
+	{
+		"vague2k/huez.nvim",
+		-- if you want registry related features, uncomment this
+		-- import = "huez-manager.import"
+		import = "huez-manager.import",
+		branch = "stable",
+		event = "UIEnter",
+		config = function()
+			require("huez").setup({})
+		end,
+	},
 	-- messages, cmdline and the popupmenu
+	{ "vim-denops/denops.vim" },
+	{ "vim-denops/denops-helloworld.vim" },
 	{
 		"folke/noice.nvim",
 		opts = function(_, opts)
@@ -114,6 +127,7 @@ return {
 				aerial = true,
 				alpha = true,
 				cmp = true,
+				dashboard = true,
 				flash = true,
 				gitsigns = true,
 				headlines = true,
@@ -136,7 +150,6 @@ return {
 				navic = { enabled = true, custom_bg = "lualine" },
 				neotest = true,
 				neotree = true,
-				noice = true,
 				notify = true,
 				semantic_tokens = true,
 				telescope = true,
@@ -189,6 +202,17 @@ return {
 		keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
 	},
 	{
+		"aserowy/tmux.nvim",
+
+		config = function()
+			return require("tmux").setup({
+				copy_sync = {
+					enable = false,
+				},
+			})
+		end,
+	},
+	{
 		"christoomey/vim-tmux-navigator",
 		cmd = {
 			"TmuxNavigateLeft",
@@ -231,12 +255,9 @@ return {
 			})
 		end,
 	},
-	--# translates to : pursuit of Knowledge comes before speech and labor
-	--# le savoir avant la parole et le travail
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
-		enabled = "true",
 		opts = function(_, opts)
 			local logo = [[
                   ▄ ▄                   
