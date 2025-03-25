@@ -20,6 +20,18 @@ return {
     "chaoren/vim-wordmotion",
   },
 
+  -- surround (for jsx tags)
+  {
+    "kylechui/nvim-surround",
+    version = "^3.0.0",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end,
+  },
+
   -- Better increase/descrease for number values
   {
     "monaqa/dial.nvim",

@@ -147,7 +147,6 @@ return {
       end,
     },
   },
-
   -- telescope alternative
   {
     "ibhagwan/fzf-lua",
