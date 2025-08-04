@@ -1,33 +1,41 @@
 return {
 
-  -- Go forward/backward with square brackets
+  --  Color picker :
+  { "nvzone/volt", lazy = true },
+
   {
-    "echasnovski/mini.bracketed",
-    event = "BufReadPost",
-    config = function()
-      local bracketed = require("mini.bracketed")
-      bracketed.setup({
-        file = { suffix = "" },
-        window = { suffix = "" },
-        quickfix = { suffix = "" },
-        yank = { suffix = "" },
-        treesitter = { suffix = "n" },
-      })
-    end,
+    "nvzone/minty",
+    cmd = { "Shades", "Huefy" },
   },
-  --  Treat CamelCase as separate words
   {
     "chaoren/vim-wordmotion",
   },
 
-  -- surround (for jsx tags)
+  -- Add nvim-surround plugin
   {
     "kylechui/nvim-surround",
-    version = "^3.0.0",
-    event = "VeryLazy",
     config = function()
       require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
+        keymaps = {
+          visual = "<C-g>S",
+          visual_line = "<C-g>gS",
+          delete = "<C-g>d",
+        },
+        surrounds = {
+          ["<"] = {
+            add = function()
+              local input = require("nvim-surround.config").get_input("Enter the tag name: ")
+              return { { "<" .. input .. ">" }, { "</" .. input .. ">" } }
+            end,
+            find = "<%w+.*>.-</%w+>",
+            delete = "^(<%w+.*>)(.-)(</%w+>)$",
+          },
+          ["["] = {
+            add = { "[", "]" },
+            find = "%b[]",
+            delete = "^([%[])(.*)([%]])$",
+          },
+        },
       })
     end,
   },

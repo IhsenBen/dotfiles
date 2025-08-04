@@ -12,7 +12,7 @@ vim.api.nvim_set_keymap("n", "<leader>fp", "<cmd>Telescope projects<CR>", { nore
 -- mimic nvchad nvterm behavioour , toggle floating terminal for quick cli.
 -- keymap.set("t", "<A-i>", "<C-\\><C-n>:lua require('nvterm.terminal').toggle('float')<CR>")
 -- keymap.set("n", "<A-i>", ":lua require('nvterm.terminal').toggle('float')<CR>")
-
+-- Nvim surround for html tags
 ---  for vscode line up and down behaviour
 keymap.set("n", "<A-j>", ":m .+1<CR>==") -- move line up(n)
 keymap.set("n", "<A-k>", ":m .-2<CR>==") -- move line down(n)

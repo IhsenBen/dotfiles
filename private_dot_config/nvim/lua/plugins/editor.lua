@@ -1,8 +1,39 @@
 return {
-  -- mini game for learning nvim
+  -- latex editor
   {
-    "ThePrimeagen/vim-be-good",
+    "lervag/vimtex",
+    lazy = false, -- Keep this: lazy-loading will disable inverse search, so it must be false
+    config = function()
+      -- These are from LazyVim's default config and are kept
+      vim.g.vimtex_mappings_disable = { ["n"] = { "K" } } -- disable `K` as it conflicts with LSP hover
+      vim.g.vimtex_quickfix_method = vim.fn.executable("pplatex") == 1 and "pplatex" or "latexlog"
+
+      -- Zathura configuration for vimtex (added for live preview)
+      vim.g.vimtex_view_method = "zathura"
+      vim.g.vimtex_compiler_latexmk_engines = {
+        _ = "-pdf", -- Ensure latexmk uses pdflatex for PDF output
+      }
+
+      -- Optional: Advanced inverse search setup for Zathura
+      -- This ensures a robust inverse search (clicking in Zathura to jump to Neovim)
+      -- Requires 'xdotool' to be installed (which you've done on Ubuntu).
+      -- LazyVim typically ensures your nvim instance has a servername for this to work.
+      vim.g.vimtex_view_general_options = {
+        "--synctex-forward=%l:%c:%f",
+        '--synctex-editor-command="nvim --headless --server $(cat /tmp/nvim.pipe) --remote-send \\"<c-^><c-w>p:call vimtex#view#inverse_search#callback_pipe(\\\'%f\\\', %l, %c)\\""',
+      }
+    end,
+    keys = {
+      { "<Leader>t", "", desc = "+vimtex", ft = "tex" },
+
+      -- Add keybindings for common vimtex actions, if you don't already have them
+      -- These provide easy access to start/stop compilation and view the PDF
+      { "<Leader>tv", ":VimtexView<CR>", desc = "View PDF", mode = "n", ft = "tex" },
+      { "<Leader>tc", ":VimtexCompile<CR>", desc = "Compile (continuous)", mode = "n", ft = "tex" },
+      { "<Leader>tk", ":VimtexStop<CR>", desc = "Stop Compile", mode = "n", ft = "tex" },
+    },
   },
+
   {
     "windwp/nvim-ts-autotag",
     lazy = false,
@@ -33,51 +64,44 @@ return {
       -- }
     end,
   },
+
   -- good  batch copy/move files
   {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
   },
 
-  {
-    "ahmedkhalf/project.nvim",
-    config = function()
-      require("project_nvim").setup({
-        patterns = { ".git", ".project", ".svn", ".hg", "Makefile", "package.json", "Cargo.toml" },
-      })
-    end,
-  },
+  -- {
+  --   "nvim-neorg/neorg",
+  --   lazy = false,
+  --   version = "*",
+  --   config = true,
+  --   ft = "norg",
+  --   opts = {
+  --     load = {
+  --       ["core.defaults"] = {},
+  --       ["core.dirman"] = {
+  --         config = {
+  --           workspaces = {
+  --             index = "~/notes",
+  --             personal = "~/notes/personal",
+  --             work = "~/notes/work",
+  --           },
+  --           default_workspace = "index",
+  --         },
+  --       },
+  --       ["core.concealer"] = {},
+  --       ["core.completion"] = { config = { engine = "nvim-cmp" } },
+  --       ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
+  --       ["core.tangle"] = {},
+  --       ["core.itero"] = {},
+  --       ["core.ui.calendar"] = {},
+  --       ["core.export"] = {},
+  --       -- ["core.latex.renderer"] = {},
+  --     },
+  --   },
+  -- },
 
-  {
-    "nvim-neorg/neorg",
-    lazy = false,
-    version = "*", -- Pin Neorg to the latest stable release
-    config = true,
-    ft = "norg",
-    opts = {
-      load = {
-        ["core.defaults"] = {},
-        ["core.dirman"] = {
-          config = {
-            workspaces = {
-              index = "~/notes",
-              personal = "~/notes/personal",
-              work = "~/notes/work",
-            },
-            default_workspace = "notes",
-          },
-        },
-        ["core.concealer"] = {},
-        ["core.completion"] = { config = { engine = "nvim-cmp" } },
-        ["core.presenter"] = { config = { zen_mode = "zen-mode" } },
-        ["core.tangle"] = {},
-        ["core.itero"] = {},
-        ["core.ui.calendar"] = {},
-        ["core.export"] = {},
-        -- ["core.latex.renderer"] = {},
-      },
-    },
-  },
   {
     "ziontee113/icon-picker.nvim",
     config = function()
@@ -147,7 +171,7 @@ return {
       end,
     },
   },
-  -- telescope alternative
+
   {
     "ibhagwan/fzf-lua",
     cmd = "FzfLua",
@@ -158,5 +182,10 @@ return {
         desc = "Switch Buffer",
       },
     },
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    opts = {},
   },
 }
