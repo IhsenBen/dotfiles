@@ -16,5 +16,8 @@ size = 11.0
 family = "FiraCode Nerd Font"
 style = "Regular"
 
+[general]
+prefer_egl_over_glx = true
+
 [keyboard]
 bindings = [{ key = "F11", action = "ToggleFullscreen" }]
