@@ -173,7 +173,11 @@ tooltip {
 #custom-weather.severe,
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
-#custom-weather.sunnyDay {
+#custom-weather.sunnyDay,
+#custom-spotify_prev,
+#custom-spotify_play,
+#custom-spotify_next,
+#custom-spotify_info {
     color: #FFFFFF;
 	padding-right: 6px;
 	padding-left: 6px;
@@ -288,18 +292,8 @@ tooltip {
 #group-spotify_player {
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 8px;
-    padding: 4px 8px;
+    padding: 2px 8px;
     margin: 0 5px;
-}
-
-/* Force all children to align center vertically */
-#group-spotify_player box {
-    padding: 0;
-    margin: 0;
-}
-
-#group-spotify_player box > widget {
-    margin: auto 0;
 }
 
 /* Album Art */
@@ -314,14 +308,11 @@ tooltip {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-/* Transport Controls */
+/* Transport Controls - inherit global padding from above */
 #custom-spotify_prev,
 #custom-spotify_play,
 #custom-spotify_next {
     font-size: 18px;
-    padding: 4px 6px;
-    margin: 0;
-    color: #ffffff;
     transition: all 0.2s ease;
 }
 
@@ -342,11 +333,10 @@ tooltip {
     color: #ffffff;
 }
 
-/* Song Info */
+/* Song Info - inherit global padding */
 #custom-spotify_info {
     font-size: 13px;
     margin-left: 8px;
-    padding: 4px 10px;
     font-weight: 500;
 }
 
