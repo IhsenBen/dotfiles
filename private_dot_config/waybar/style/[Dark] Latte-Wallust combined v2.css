@@ -300,7 +300,6 @@ tooltip {
 }
 
 #image.album_art:hover {
-    transform: scale(1.05);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
@@ -317,12 +316,10 @@ tooltip {
 #custom-spotify_prev:hover,
 #custom-spotify_next:hover {
     color: #1db954; /* Spotify green */
-    transform: scale(1.2);
 }
 
 #custom-spotify_play:hover {
     color: #1db954;
-    transform: scale(1.3);
 }
 
 #custom-spotify_play.playing {
