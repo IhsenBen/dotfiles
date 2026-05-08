@@ -1,0 +1,362 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+/* Catppuccin Latte - Wallust - v2 */
+
+@define-color white      	#F2F2F2;
+@define-color black      	#000000;
+@define-color text       	#FFFFFF;
+@define-color lightgray  	#686868;
+@define-color darkgray   	#353535;
+
+@define-color transparent	rgba(1, 1, 1, 0.5);
+@define-color teal-trans	rgba(1, 117, 84, 0.5);
+@define-color cyan			rgba(53, 140, 169, 1);
+
+@define-color background-module     @background;
+@define-color background-module2	rgba(30, 30, 46, 0.9);
+@define-color border-color          @color12;
+@define-color button-color          @color10;
+@define-color button-hover          @color13;
+
+@import '../../.config/waybar/wallust/colors-waybar.css';
+@import "../waybar/style/catppuccin-themes/latte.css";
+
+/* Force text contrast override - ensures readable text on any background */
+/* Override wallust foreground to always use safe white text on dark backgrounds */
+@define-color foreground-safe #FFFFFF;
+@define-color text-safe #FFFFFF;
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+	min-height: 0;  
+    /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
+    font-size: 97%;
+    font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
+}
+
+window#waybar {
+    background: @background;
+    border-radius:15px;
+	padding-top: 2px;
+	padding-bottom: 0px;
+	padding-right: 4px;
+	padding-left: 4px;
+}
+
+tooltip {
+    background: #1e1e2e;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: @border-color;
+    color: #ffffff;
+}
+
+#workspaces {
+    padding: 0px 1px;
+    border-radius: 15px;
+    border-bottom: 2px solid @border-color;
+    font-weight: bold;
+    font-style: normal;
+    opacity: 0.8;
+}
+
+#taskbar button,   
+#workspaces button {
+    color: #FFFFFF;
+    box-shadow: none;
+	text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 
+	             1px 1px 2px rgba(0, 0, 0, 0.6);
+    border-radius: 30px;
+    padding-left: 4px;
+    padding-right: 4px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.5s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#taskbar button.active,
+#workspaces button.active {
+    color: #ffd700;
+    border-radius: 50%;
+    background-color: black;
+    border-radius: 15px;
+    padding-left: 8px;
+    padding-right: 8px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button.focused {
+    color: #d8dee9;
+}
+
+#workspaces button.urgent {
+    color: #11111b;
+    border-radius: 10px;
+}
+
+#taskbar button:hover,
+#workspaces button:hover {
+    color: #ffd700;
+    border-radius: 10px;
+ 	padding-left: 2px;
+    padding-right: 2px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+/*-----module groups----*/
+.modules-center {
+    background-color: @background-module2;
+    border-radius: 10px;
+    padding: 4px;
+	border-bottom: 2px solid @border-color;
+	border-right: 1px solid @button-hover;
+	border-left: 1px solid @button-hover;
+}
+
+#backlight,
+#backlight-slider,
+#battery,
+#bluetooth,
+#clock,
+#cpu,
+#disk,
+#idle_inhibitor,
+#keyboard-state,
+#memory,
+#mode,
+#mpris,
+#network,
+#power-profiles-daemon,
+#pulseaudio,
+#pulseaudio-slider,
+#taskbar,
+#temperature,
+#tray,
+#window,
+#wireplumber,
+#workspaces,
+#custom-backlight,
+#custom-nightlight,
+#custom-browser,
+#custom-cava_mviz,
+#custom-cycle_wall,
+#custom-dot_update,
+#custom-file_manager,
+#custom-keybinds,
+#custom-keyboard,
+#custom-light_dark,
+#custom-nightlight,
+#custom-lock,
+#custom-hint,
+#custom-hypridle,
+#custom-menu,
+#custom-playerctl,
+#custom-power_vertical,
+#custom-power,
+#custom-quit,
+#custom-reboot,
+#custom-settings,
+#custom-spotify,
+#custom-swaync,
+#custom-tty,
+#custom-updater,
+#custom-hyprpicker,
+#custom-weather,
+#custom-weather.clearNight,
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight,
+#custom-weather.default, 
+#custom-weather.rainyDay,
+#custom-weather.rainyNight,
+#custom-weather.severe,
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight,
+#custom-weather.sunnyDay {
+    color: #FFFFFF;
+	padding-right: 6px;
+	padding-left: 6px;
+	/* Add text shadow for better contrast on any background */
+	text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 
+	             1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+#temperature.critical {
+    background-color: #ff0000;
+}
+
+@keyframes blink {
+    to {
+        color: #000000;
+    }
+}
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+    min-width: 0px;
+    min-height: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+    min-width: 80px;
+    min-height: 5px;
+    border-radius: 5px;
+    background-color: #22252a;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+    min-height: 10px;
+    border-radius: 5px;
+    background-color: #ba5663;
+}
+
+#pulseaudio-slider,
+#pulseaudio {
+	color: #8cf8f7;
+}
+
+#pulseaudio.muted {
+    color: red;
+}
+
+#memory {
+	color: @sapphire;
+}
+
+#cpu {
+	color: @mauve;
+}
+
+#battery {
+	color: @rosewater;
+}
+
+#disk {
+	color: @sky;
+}
+
+#temperature.critical {
+    background-color: @red;
+}
+
+#battery.critical:not(.charging) {
+	color: #f53c3c;
+	animation-name: blink;
+	animation-duration: 3.0s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#custom-hypridle,
+#custom-lock,
+#idle_inhibitor {
+    color: @teal;
+    border-bottom: 2px solid @border-color;
+}
+
+/*-----Indicators----*/
+#custom-hypridle.notactive,
+#idle_inhibitor.activated {
+	color: #39FF14;
+    border-bottom: 2px solid @border-color;
+}
+
+#clock {
+	color: #FFFFFF;
+    border-radius: 15px;
+}
+
+#custom-updates {
+    color: @yellow;
+}
+#swaync{
+    color: #ffd700;}
+
+/* =========================================== */
+/* Spotify Player - Winamp Style              */
+/* =========================================== */
+
+/* Spotify Player Group */
+#group-spotify_player {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 2px 8px;
+    margin: 0 5px;
+}
+
+/* Album Art */
+#image.album_art {
+    border-radius: 4px;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+#image.album_art:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Transport Controls */
+#custom-spotify_prev,
+#custom-spotify_play,
+#custom-spotify_next {
+    font-size: 18px;
+    padding: 0 6px;
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+
+#custom-spotify_prev:hover,
+#custom-spotify_next:hover {
+    color: #1db954; /* Spotify green */
+    transform: scale(1.2);
+}
+
+#custom-spotify_play:hover {
+    color: #1db954;
+    transform: scale(1.3);
+}
+
+#custom-spotify_play.playing {
+    color: #1db954;
+}
+
+#custom-spotify_play.paused {
+    color: #ffffff;
+}
+
+/* Song Info */
+#custom-spotify_info {
+    font-size: 13px;
+    margin-left: 8px;
+    padding: 0 10px;
+    font-weight: 500;
+}
+
+#custom-spotify_info.playing {
+    color: #1db954;
+}
+
+#custom-spotify_info.paused {
+    color: #888888;
+    font-style: italic;
+}
+
+/* Winamp-style glow effect */
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px rgba(29, 185, 84, 0.5); }
+    50% { text-shadow: 0 0 10px rgba(29, 185, 84, 0.8); }
+}
+
+#custom-spotify_info.Playing {
+    animation: glow 2s ease-in-out infinite;
+}
+

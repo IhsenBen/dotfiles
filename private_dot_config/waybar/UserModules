@@ -1,0 +1,62 @@
+//* ---- 💫 https://github.com/JaKooLit 💫 ---- *//
+/* Waybar Modules Extras */
+
+/* This is where you can add Extra Modules you wish. copy.sh will try to restore*/
+/* this file along with the unique configs and styles. */
+/* IMPORTANT, be mindful with , or ". else waybar will not start */
+
+{
+  // Spotify Player - Winamp Style
+  // Album art image
+  "image#album_art": {
+    "exec": "$HOME/.config/waybar/scripts/spotify_album_art.sh",
+    "size": 32,
+    "interval": 5,
+    "on-click": "playerctl -p spotify play-pause",
+    "tooltip-format": "Click to play/pause"
+  },
+
+  // Transport controls
+  "custom/spotify_prev": {
+    "format": "⏮",
+    "on-click": "playerctl -p spotify previous",
+    "tooltip-format": "Previous Track"
+  },
+
+  "custom/spotify_play": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/scripts/spotify_status.sh",
+    "interval": 1,
+    "on-click": "playerctl -p spotify play-pause"
+  },
+
+  "custom/spotify_next": {
+    "format": "⏭",
+    "on-click": "playerctl -p spotify next",
+    "tooltip-format": "Next Track"
+  },
+
+  // Song info display
+  "custom/spotify_info": {
+    "format": "<span>{}</span>",
+    "return-type": "json",
+    "max-length": 40,
+    "exec": "$HOME/.config/waybar/scripts/spotify_info.sh",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --inc",
+    "on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --dec"
+  },
+
+  // Group them together
+  "group/spotify_player": {
+    "orientation": "horizontal",
+    "modules": [
+      "image#album_art",
+      "custom/spotify_prev",
+      "custom/spotify_play",
+      "custom/spotify_next",
+      "custom/spotify_info"
+    ]
+  }
+}
