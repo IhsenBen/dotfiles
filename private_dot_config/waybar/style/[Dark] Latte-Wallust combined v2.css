@@ -297,12 +297,15 @@ tooltip {
 }
 
 #group-spotify_player box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     padding: 0;
     margin: 0;
+}
+
+#group-spotify_player box > * {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 /* Album Art */
@@ -311,8 +314,6 @@ tooltip {
     margin-right: 8px;
     padding: 0;
     transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
 }
 
 #image.album_art:hover {
@@ -325,9 +326,6 @@ tooltip {
 #custom-spotify_next {
     font-size: 18px;
     transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #custom-spotify_prev:hover,
@@ -352,8 +350,6 @@ tooltip {
     font-size: 13px;
     margin-left: 8px;
     font-weight: 500;
-    display: flex;
-    align-items: center;
 }
 
 #custom-spotify_info.Playing {
