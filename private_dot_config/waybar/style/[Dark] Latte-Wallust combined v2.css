@@ -292,7 +292,7 @@ tooltip {
 #group-spotify_player {
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 8px;
-    padding: 4px 8px;
+    padding: 0 8px;
     margin: 0 5px;
 }
 
@@ -303,13 +303,13 @@ tooltip {
 
 /* Force all children to have the same height */
 #group-spotify_player box > * {
-    min-height: 32px;
+    min-height: 24px;
 }
 
-/* Album Art */
+/* Album Art - reduce size */
 #image.album_art {
     border-radius: 4px;
-    margin-right: 8px;
+    margin-right: 6px;
     padding: 0;
     transition: all 0.3s ease;
 }
@@ -322,10 +322,10 @@ tooltip {
 #custom-spotify_prev,
 #custom-spotify_play,
 #custom-spotify_next {
-    font-size: 18px;
-    min-height: 32px;
-    padding-top: 7px;
-    padding-bottom: 7px;
+    font-size: 16px;
+    min-height: 24px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     transition: all 0.2s ease;
 }
 
@@ -349,11 +349,11 @@ tooltip {
 /* Song Info - center vertically with padding */
 #custom-spotify_info {
     font-size: 13px;
-    min-height: 32px;
-    margin-left: 8px;
+    min-height: 24px;
+    margin-left: 6px;
     font-weight: 500;
-    padding-top: 9px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 6px;
 }
 
 #custom-spotify_info.Playing {

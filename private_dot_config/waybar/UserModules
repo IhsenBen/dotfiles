@@ -10,7 +10,7 @@
   // Album art image
   "image#album_art": {
     "exec": "$HOME/.config/waybar/scripts/spotify_album_art.sh",
-    "size": 32,
+    "size": 24,
     "interval": 5,
     "on-click": "playerctl -p spotify play-pause",
     "tooltip-format": "Click to play/pause"
