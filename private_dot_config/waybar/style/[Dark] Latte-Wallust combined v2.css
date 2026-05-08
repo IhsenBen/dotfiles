@@ -288,20 +288,29 @@ tooltip {
 #group-spotify_player {
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 8px;
-    padding: 2px 8px;
+    padding: 4px 8px;
     margin: 0 5px;
 }
 
-#group-spotify_player > * {
-    min-height: 32px;
-    padding-top: 0;
-    padding-bottom: 0;
+#group-spotify_player box {
+    padding: 0;
+    margin: 0;
+}
+
+#group-spotify_player > box > * {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* Album Art */
 #image.album_art {
     border-radius: 4px;
     margin-right: 8px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
     transition: all 0.3s ease;
 }
 
@@ -315,9 +324,10 @@ tooltip {
 #custom-spotify_next {
     font-size: 18px;
     padding: 0 6px;
+    margin-top: 0;
+    margin-bottom: 0;
     color: #ffffff;
     transition: all 0.2s ease;
-    min-height: 32px;
 }
 
 #custom-spotify_prev:hover,
@@ -341,9 +351,10 @@ tooltip {
 #custom-spotify_info {
     font-size: 13px;
     margin-left: 8px;
-    padding: 0 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 4px 10px;
     font-weight: 500;
-    min-height: 32px;
 }
 
 #custom-spotify_info.Playing {
