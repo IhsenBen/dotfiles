@@ -338,22 +338,13 @@ tooltip {
     font-weight: 500;
 }
 
-#custom-spotify_info.playing {
+#custom-spotify_info.Playing {
     color: #1db954;
 }
 
-#custom-spotify_info.paused {
+#custom-spotify_info.Paused {
     color: #888888;
     font-style: italic;
 }
 
-/* Winamp-style glow effect */
-@keyframes glow {
-    0%, 100% { text-shadow: 0 0 5px rgba(29, 185, 84, 0.5); }
-    50% { text-shadow: 0 0 10px rgba(29, 185, 84, 0.8); }
-}
-
-#custom-spotify_info.Playing {
-    animation: glow 2s ease-in-out infinite;
-}
 
