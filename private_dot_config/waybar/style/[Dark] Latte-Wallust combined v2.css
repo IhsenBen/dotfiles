@@ -292,24 +292,20 @@ tooltip {
     margin: 0 5px;
 }
 
+/* Force all children to align center vertically */
 #group-spotify_player box {
     padding: 0;
     margin: 0;
 }
 
-#group-spotify_player > box > * {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin-top: 0;
-    margin-bottom: 0;
+#group-spotify_player box > widget {
+    margin: auto 0;
 }
 
 /* Album Art */
 #image.album_art {
     border-radius: 4px;
     margin-right: 8px;
-    margin-top: 0;
-    margin-bottom: 0;
     padding: 0;
     transition: all 0.3s ease;
 }
@@ -323,9 +319,8 @@ tooltip {
 #custom-spotify_play,
 #custom-spotify_next {
     font-size: 18px;
-    padding: 0 6px;
-    margin-top: 0;
-    margin-bottom: 0;
+    padding: 4px 6px;
+    margin: 0;
     color: #ffffff;
     transition: all 0.2s ease;
 }
@@ -351,8 +346,6 @@ tooltip {
 #custom-spotify_info {
     font-size: 13px;
     margin-left: 8px;
-    margin-top: 0;
-    margin-bottom: 0;
     padding: 4px 10px;
     font-weight: 500;
 }
