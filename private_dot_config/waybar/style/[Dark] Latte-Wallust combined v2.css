@@ -304,8 +304,8 @@ tooltip {
 #group-spotify_player box > * {
     padding-top: 0;
     padding-bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* Album Art */
