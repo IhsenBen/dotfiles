@@ -292,6 +292,12 @@ tooltip {
     margin: 0 5px;
 }
 
+#group-spotify_player > * {
+    min-height: 32px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
 /* Album Art */
 #image.album_art {
     border-radius: 4px;
@@ -311,6 +317,7 @@ tooltip {
     padding: 0 6px;
     color: #ffffff;
     transition: all 0.2s ease;
+    min-height: 32px;
 }
 
 #custom-spotify_prev:hover,
@@ -336,6 +343,7 @@ tooltip {
     margin-left: 8px;
     padding: 0 10px;
     font-weight: 500;
+    min-height: 32px;
 }
 
 #custom-spotify_info.Playing {
@@ -344,6 +352,11 @@ tooltip {
 
 #custom-spotify_info.Paused {
     color: #888888;
+    font-style: italic;
+}
+
+#custom-spotify_info.stopped {
+    color: #555555;
     font-style: italic;
 }
 
