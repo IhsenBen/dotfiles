@@ -39,7 +39,7 @@
 
   // Song info display
   "custom/spotify_info": {
-    "format": "<span>{}</span>",
+    "format": "{}",
     "return-type": "json",
     "max-length": 40,
     "exec": "$HOME/.config/waybar/scripts/spotify_info.sh",
